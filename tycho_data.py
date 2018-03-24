@@ -1,4 +1,5 @@
 from requests import get
+from urllib.parse import urlencode
 import pandas as pd
 import os
 import csv
@@ -24,9 +25,10 @@ for disease in diseases:
                           disease['disease'].replace('/', ' or ')]) + '.csv'
             if os.path.exists(file_name):
                 continue
-            r = get('http://www.tycho.pitt.edu/api/query', params={'loc_type': 'city', 'loc': city['loc'], 'disease': disease['disease'],
-                                                                   'event': event, 'state': city['state'],
-                                                                   'start': 1888, 'end': 2014, 'apikey': API_KEY + '.csv'})
+            query = urlencode({'loc_type': 'city', 'loc': city['loc'], 'disease': disease['disease'],
+                               'event': event, 'state': city['state'],
+                               'start': 1888, 'end': 2014, 'apikey': API_KEY}) + '.csv'
+            r = get('http://www.tycho.pitt.edu/api/query?' + query, )
 
             size = len(r.content)
             print(r.url)
