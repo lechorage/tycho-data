@@ -1,5 +1,6 @@
 from requests import get
 from urllib.parse import urlencode
+from config import API_KEY
 import pandas as pd
 import os
 import csv
@@ -11,8 +12,6 @@ def load_csv(file_name):
         return [{k: v for k, v in row.items()}
                 for row in csv.DictReader(f, skipinitialspace=True)]
 
-
-API_KEY = "5f4dd2e9ee68ad1f3263"
 
 diseases = load_csv('diseases.csv')
 cities = load_csv('cities.csv')
