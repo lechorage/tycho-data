@@ -11,7 +11,7 @@ def load_csv(file_name):
                 for row in csv.DictReader(f, skipinitialspace=True)]
 
 
-API_KEY = ""
+API_KEY = "5f4dd2e9ee68ad1f3263"
 
 diseases = load_csv('diseases.csv')
 cities = load_csv('cities.csv')
@@ -21,7 +21,7 @@ for disease in diseases:
         for event in ['cases', 'deaths']:
             file_name = 'data/' + \
                 '_'.join([city['loc'], city['state'],
-                          disease['disease']]) + '.csv'
+                          disease['disease'].replace('/', ' or ')]) + '.csv'
             if os.path.exists(file_name):
                 continue
             r = get('http://www.tycho.pitt.edu/api/query', params={'loc_type': 'city', 'loc': city['loc'], 'disease': disease['disease'],
@@ -29,9 +29,10 @@ for disease in diseases:
                                                                    'start': 1888, 'end': 2014, 'apikey': API_KEY + '.csv'})
 
             size = len(r.content)
-            if size <= 11 and 'No results' in r.text:
-                continue
             print(r.url)
             print(size, disease, city)
             with open(file_name, 'wb') as f:
-                f.write(r.content)
+                if size <= 11 and 'No results' in r.text:
+                    f.write(b"")
+                else:
+                    f.write(r.content)

@@ -1,0 +1,4 @@
+year,week,loc,state,country,loc_type,number,event
+1911,19,NEWTON,MA,US,CITY,1,CASES
+1902,1,NEWTON,MA,US,CITY,1,CASES
+1901,40,NEWTON,MA,US,CITY,1,CASES
