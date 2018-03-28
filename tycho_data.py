@@ -13,27 +13,33 @@ def load_csv(file_name):
                 for row in csv.DictReader(f, skipinitialspace=True)]
 
 
-diseases = load_csv('diseases.csv')
-cities = load_csv('cities.csv')
+conditions = load_csv('condition.csv')
+cities = load_csv('city.csv')
 
-for disease in diseases:
+for condition in conditions:
     for city in cities:
-        for event in ['cases', 'deaths']:
+        offset = 0
+        while True:
             file_name = 'data/' + \
-                '_'.join([city['loc'], city['state'],
-                          disease['disease'].replace('/', ' or ')]) + '.csv'
+                '_'.join(
+                    [city['CityName'], condition['ConditionName'], str(offset)]) + '.csv'
             if os.path.exists(file_name):
-                continue
-            query = urlencode({'loc_type': 'city', 'loc': city['loc'], 'disease': disease['disease'],
-                               'event': event, 'state': city['state'],
-                               'start': 1888, 'end': 2014, 'apikey': API_KEY}) + '.csv'
-            r = get('http://www.tycho.pitt.edu/api/query?' + query, )
+                break
+
+            r = get('https://www.tycho.pitt.edu/api/query', params={'ConditionName': condition['ConditionName'],
+                                                                    'CityName': city['CityName'], 'apikey': API_KEY,
+                                                                    'limit': 20000, 'offset': offset})
 
             size = len(r.content)
+            empty = size <= 11 and 'No results' in r.text
             print(r.url)
-            print(size, disease, city)
+            print(size, city['CityName'], condition['ConditionName'], offset)
             with open(file_name, 'wb') as f:
-                if size <= 11 and 'No results' in r.text:
+                if empty:
                     f.write(b"")
                 else:
                     f.write(r.content)
+            if empty:
+                break
+            else:
+                offset += 20000

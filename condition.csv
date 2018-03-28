@@ -1,0 +1,93 @@
+ConditionName,ConditionSNOMED
+Acquired immune deficiency syndrome,62479008
+Active tuberculosis,427099000
+Acute hepatitis C,235866006
+Acute nonparalytic poliomyelitis,14535005
+Acute paralytic poliomyelitis,240460008
+Acute poliomyelitis,398102009
+Acute type A viral hepatitis,25102003
+Acute type B viral hepatitis,76795007
+Amebic dysentery,387754006
+Anthrax,409498004
+Aseptic meningitis,301770000
+Babesiosis,21061004
+Bacillary dysentery,274081004
+Brucellosis,75702008
+Campylobacteriosis,86500004
+Chlamydia trachomatis infection,240589008
+Chlamydial infection,105629000
+Cholera,63650001
+Coccidioidomycosis,60826002
+Congenital rubella syndrome,1857005
+Congenital syphilis,35742006
+Cryptosporidiosis,240370009
+Dengue,38362002
+Dengue hemorrhagic fever,20927009
+Dengue without warning signs,722862003
+Diphtheria,397428000
+Disease caused by West Nile virus,417093003
+Disorder of nervous system caused by West Nile virus,430397002
+Dysentery,111939009
+Encephalitis,45170000
+Encephalitis lethargica,186499007
+Giardiasis,58265007
+Gonorrhea,15628003
+Haemophilus influenzae infection,91428005
+Haemophilus influenzae type b infection,709410003
+Hepatitis non-A non-B,186634008
+Human anaplasmosis caused by Anaplasma phagocytophilum,85708001
+Human ehrlichiosis caused by Ehrlichia chaffeensis,359747000
+Infantile paralysis,397928009
+Infection caused by Escherichia coli,71057007
+Infection caused by larvae of Trichinella,709018004
+Infection caused by non-cholerae vibrio,398557001
+Infection caused by Shiga toxin producing Escherichia coli,328291000119103
+Infective encephalitis,312215006
+Inflammatory disease of liver,128241005
+Influenza,6142004
+Intestinal infection caused by Escherichia coli O157:H7,446328009
+Invasive drug resistant Streptococcus pneumoniae disease,406618009
+Invasive Group A beta-hemolytic streptococcal disease,406614006
+Invasive meningococcal disease,707225006
+Invasive Streptococcus pneumoniae disease,406617004
+Legionella infection,26726000
+Leprosy,81004002
+Listeriosis,4241002
+Lobar pneumonia,278516003
+Lyme disease,23502006
+Malaria,61462000
+Measles,14189004
+Meningitis,7180009
+Meningococcal infectious disease,23511006
+Meningococcal meningitis,192644005
+Mumps,36989005
+Murine typhus,25668000
+Ornithosis,75116005
+Pellagra,418186002
+Pertussis,27836007
+Pneumonia,233604007
+Post-infectious encephalitis,192727001
+Primary encephalitis,406573001
+Rocky Mountain spotted fever,186772009
+Rubella,36653000
+Salmonella infection,302231008
+Scarlet fever,30242009
+Shigellosis,36188001
+Smallpox,67924001
+Smallpox without rash,74724001
+Spotted fever group rickettsial disease,186771002
+Streptococcal sore throat,43878008
+Syphilis,76272004
+Tetanus,76902006
+Toxic shock syndrome,18504008
+Tuberculosis,56717001
+Tularemia,19265001
+Typhoid and paratyphoid fevers,186090001
+Typhoid fever,4834000
+Typhus group rickettsial disease,240613006
+Varicella,38907003
+Viral hepatitis,3738000
+Viral hepatitis type B,66071002
+"Viral hepatitis, type A",40468003
+West Nile fever without encephalitis,397420007
+Yellow fever,16541001
