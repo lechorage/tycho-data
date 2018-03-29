@@ -1,5 +1,4 @@
 from requests import get
-from urllib.parse import urlencode
 from config import API_KEY
 import pandas as pd
 import os
@@ -25,12 +24,15 @@ for condition in conditions:
                     [city['CityName'], condition['ConditionName'], str(offset)]) + '.csv'
             if os.path.exists(file_name):
                 break
-
-            r = get('https://www.tycho.pitt.edu/api/query', params={'ConditionName': condition['ConditionName'],
-                                                                    'CityName': city['CityName'], 'apikey': API_KEY,
-                                                                    'limit': 20000, 'offset': offset})
-
-            size = len(r.content)
+            params = {'ConditionName': condition['ConditionName'],
+                      'CityName': city['CityName'].replace('.', '%2E'), 'apikey': API_KEY,
+                      'limit': 20000, 'offset': offset}
+            url = 'https://www.tycho.pitt.edu/api/query?limit=20000&offset=' + \
+                str(offset) + '&apikey=' + API_KEY + '&ConditionName=' + \
+                condition['ConditionName'] + '&CityName=' + city['CityName']
+            r = get('https://www.tycho.pitt.edu/api/query', params=params)
+            content = r.content
+            size = len(content)
             empty = size <= 11 and 'No results' in r.text
             print(r.url)
             print(size, city['CityName'], condition['ConditionName'], offset)
